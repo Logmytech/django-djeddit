@@ -172,7 +172,7 @@ class ThreadPageTest(TestCase, TestCalls):
 
     def testLoads(self):
         url = reverse('threadPage', args=[self.topic.urlTitle, self.thread.id])
-        self._test_call_view_loads(url)
+        self._test_call_view_loads(url, code=302)
 
     def testWrongTopic(self):
         url = reverse('threadPage', args=['Fake_Topic', self.thread.id])
