@@ -39,10 +39,10 @@ class TestCalls(object):
         self.login(username, password)
         return user
 
-    def _test_call_view_loads(self, url, data=None):
+    def _test_call_view_loads(self, url, code=200, data=None):
         data = data or {}
         response = self.client.get(url, data)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, code)
         self.assertTemplateUsed(self.template)
 
     def _test_call_view_submit(self, url, code=200, data=None):
